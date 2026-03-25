@@ -1,97 +1,97 @@
-# 📊 Phân Tích Các Yếu Tố Ảnh Hưởng Đến Kết Quả Học Tập
+# 📊 Analysis of Factors Affecting Academic Performance
 
-> **Đồ án môn Phân Tích Dữ Liệu – Học kỳ 2, năm học 2024–2025**  
-> Trường Đại học Sài Gòn – Khoa Công Nghệ Thông Tin
-
----
-
-## 👤 Thông tin sinh viên
-
-| Thông tin | Chi tiết |
-|-----------|----------|
-| Họ và tên | Nguyễn Ngọc Hiếu |
-| MSSV | 3122411055 |
-| Lớp | DCT122C5 |
-| GVHD | Phan Tuấn Đăng |
-| Thời gian | Tháng 4 năm 2025 |
+> **Data Analysis Project – Semester 2, Academic Year 2024–2025**  
+> Saigon University – Faculty of Information Technology
 
 ---
 
-## 📁 Tập dữ liệu
+## 👤 Student Information
 
-- **Nguồn:** [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/student+performance)
+| Field | Details |
+|-------|---------|
+| Full Name | Nguyen Ngoc Hieu |
+| Student ID | 3122411055 |
+| Class | DCT122C5 |
+| Director | Phan Tuan Dang |
+| Date | April 2025 |
+
+---
+
+## 📁 Dataset
+
+- **Source:** [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/student+performance)
 - **File:** `student-mat.csv`
-- **Mô tả:** Dữ liệu kết quả học tập môn Toán của học sinh trung học tại Bồ Đào Nha
-- **Kích thước:** 395 học sinh × 33 thuộc tính
-- **Kiểu dữ liệu:** 16 cột số (int64), 17 cột phân loại (object)
+- **Description:** Math subject performance data of secondary school students in Portugal
+- **Size:** 395 students × 33 attributes
+- **Data Types:** 16 numeric columns (int64), 17 categorical columns (object)
 
-### Các biến chính
+### Key Variables
 
-| Biến | Mô tả |
-|------|-------|
-| `G1`, `G2`, `G3` | Điểm học kỳ 1, 2 và điểm cuối kỳ (thang 0–20) |
-| `studytime` | Thời gian học mỗi tuần (1=<2h, 2=2–5h, 3=5–10h, 4=>10h) |
-| `absences` | Số buổi nghỉ học |
-| `sex` | Giới tính (F/M) |
-| `failures` | Số môn học sinh đã trượt |
-| `Medu`, `Fedu` | Trình độ học vấn của mẹ/cha (0–4) |
+| Variable | Description |
+|----------|-------------|
+| `G1`, `G2`, `G3` | Grades for period 1, 2, and final exam (scale 0–20) |
+| `studytime` | Weekly study time (1=<2h, 2=2–5h, 3=5–10h, 4=>10h) |
+| `absences` | Number of school absences |
+| `sex` | Student gender (F/M) |
+| `failures` | Number of past class failures |
+| `Medu`, `Fedu` | Mother's / Father's education level (0–4) |
 
 ---
 
-## 🗂️ Cấu trúc báo cáo
+## 🗂️ Report Structure
 
 ```
-├── Công việc 1: Khám phá và xử lý dữ liệu
-│   ├── Tải và đọc dữ liệu bằng pandas
-│   ├── Kiểm tra và xử lý giá trị thiếu
-│   └── Báo cáo phân phối G3, studytime, school, sex
+├── Task 1: Data Exploration & Preprocessing
+│   ├── Load and read data with pandas
+│   ├── Check and handle missing values
+│   └── Distribution report for G3, studytime, school, sex
 │
-├── Công việc 2: Trực quan hoá dữ liệu
-│   ├── Matplotlib – Biểu đồ cột & phân tán
+├── Task 2: Data Visualization
+│   ├── Matplotlib – Bar chart & scatter plot
 │   ├── Seaborn – lmplot, boxplot, pairplot
-│   └── Bokeh – Biểu đồ tương tác với HoverTool & Slider
+│   └── Bokeh – Interactive charts with HoverTool & Slider
 │
-├── Công việc 3: Kiểm định thống kê
-│   ├── t-test: So sánh G3 theo nhóm absences
-│   └── z-test: So sánh G3 nhóm studytime ≤ 2 với toàn mẫu
+├── Task 3: Statistical Hypothesis Testing
+│   ├── t-test: Compare G3 between high/low absence groups
+│   └── z-test: Compare G3 of studytime ≤ 2 group vs. overall mean
 │
-└── Công việc 4: Phân tích & Báo cáo
-    ├── Giới thiệu tập dữ liệu & mục tiêu
-    ├── Mô tả biểu đồ
-    ├── Phân tích xu hướng & kết quả kiểm định
-    └── Đề xuất cải thiện kết quả học tập
+└── Task 4: Analysis & Report
+    ├── Dataset introduction & objectives
+    ├── Chart descriptions
+    ├── Trend analysis & hypothesis test results
+    └── Recommendations for improving academic performance
 ```
 
 ---
 
-## 📊 Kết quả chính
+## 📊 Key Findings
 
-### Thống kê mô tả
-- Điểm G3 trung bình: **10.42 / 20**
-- 76% học sinh học dưới **5 giờ/tuần**
-- Trường GP chiếm **~88%** dữ liệu
-- Tỉ lệ giới tính: **53% nữ – 47% nam**
+### Descriptive Statistics
+- Average G3 score: **10.42 / 20**
+- **76%** of students study fewer than **5 hours/week**
+- School GP accounts for **~88%** of the data
+- Gender ratio: **53% female – 47% male**
 
-### Kiểm định thống kê
+### Statistical Tests
 
-| Kiểm định | Giả thuyết | p-value | Kết luận |
-|-----------|-----------|---------|----------|
-| **t-test** | Học sinh nghỉ nhiều có G3 thấp hơn? | 0.0814 | Không bác bỏ H₀ |
-| **z-test** | G3 nhóm studytime ≤ 2 khác trung bình toàn mẫu? | 0.2656 | Không bác bỏ H₀ |
+| Test | Hypothesis | p-value | Conclusion |
+|------|-----------|---------|------------|
+| **t-test** | Students with more absences have lower G3? | 0.0814 | Fail to reject H₀ |
+| **z-test** | G3 of studytime ≤ 2 group differs from overall mean? | 0.2656 | Fail to reject H₀ |
 
-> ⚠️ Cả hai kiểm định đều có p-value > 0.05, tuy nhiên **xu hướng** vẫn cho thấy học nhiều hơn có liên quan đến điểm số cao hơn.
-
----
-
-## 💡 Đề xuất cải thiện
-
-1. **Tăng thời gian học hiệu quả** – Khuyến khích học sinh đạt mức studytime = 3 (5–10 giờ/tuần), kết hợp cải thiện phương pháp học tập như ghi chú, học nhóm, quản lý thời gian.
-
-2. **Giảm số ngày vắng học** – Tìm hiểu nguyên nhân nghỉ học, hỗ trợ học sinh thông qua lớp học bù, tài liệu trực tuyến, tư vấn tâm lý để giảm nguy cơ đạt điểm thấp.
+> ⚠️ Both tests yielded p-value > 0.05, however a **weak trend** suggests that studying more is associated with higher scores.
 
 ---
 
-## 🛠️ Công nghệ sử dụng
+## 💡 Recommendations
+
+1. **Increase effective study time** – Encourage students to reach studytime = 3 (5–10 hours/week), combined with better study habits such as note-taking, group study, and time management.
+
+2. **Reduce absenteeism** – Investigate reasons for absences and support students through make-up classes, online materials, and counseling to reduce the risk of poor performance.
+
+---
+
+## 🛠️ Technologies Used
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-green)
@@ -108,4 +108,4 @@ pip install pandas matplotlib seaborn bokeh scipy statsmodels
 
 ## 📄 License
 
-Báo cáo được thực hiện cho mục đích học thuật tại Trường Đại học Sài Gòn.
+This report was produced for academic purposes at Saigon University.
